@@ -19,7 +19,7 @@ function setLanguage(lang) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  const saved = localStorage.getItem('tripster-lang') || 'en';
+  const saved = localStorage.getItem('tripster-lang') || 'uz';
   applyTranslations(saved);
   document.querySelectorAll('.lang-btn').forEach(btn => {
     btn.addEventListener('click', () => setLanguage(btn.dataset.lang));
