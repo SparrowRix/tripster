@@ -49,12 +49,67 @@
 
     /* Card hover */
     .dest-card {
+      position: relative;
+      height: 380px;
       transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
     }
     .dest-card:hover {
       transform: scale(1.03);
       box-shadow: 0 0 24px rgba(0, 212, 255, 0.35);
-      border-color: #00D4FF;
+      border-color: #000D33;
+    }
+
+    /* Card overlay */
+    .card-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,13,51,0.3) 60%, transparent 100%);
+    }
+
+    /* Price badge */
+    .price-badge {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: #00D4FF;
+      color: #000D33;
+      font-weight: 700;
+      border-radius: 999px;
+      padding: 4px 12px;
+      font-size: 0.75rem;
+      z-index: 10;
+    }
+
+    /* Card glassmorphism content */
+    .card-content {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 1.25rem 1.5rem;
+      backdrop-filter: blur(12px);
+      background: rgba(0,13,51,0.45);
+      border-top: 1px solid rgba(255,255,255,0.1);
+      z-index: 10;
+    }
+
+    /* Learn More button */
+    .btn-learn-more {
+      display: inline-block;
+      margin-top: 0.75rem;
+      padding: 6px 18px;
+      border-radius: 999px;
+      border: 1px solid #00D4FF;
+      color: #00D4FF;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .btn-learn-more:hover {
+      background-color: #00D4FF;
+      color: #000D33;
+      box-shadow: 0 0 14px rgba(0, 212, 255, 0.5);
     }
 
     /* CTA button */
@@ -191,41 +246,38 @@
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
 
         <!-- Card 1 -->
-        <div class="dest-card fade-up delay-100 bg-white/5 border border-white/10 rounded-2xl overflow-hidden">
-          <img src="https://placehold.co/600x400/001560/00D4FF?text=Santorini" alt="Santorini" class="w-full h-52 object-cover" loading="lazy" />
-          <div class="p-6">
-            <div class="flex items-center justify-between mb-2">
-              <h3 class="text-xl font-bold">Santorini</h3>
-              <span class="text-cyan font-bold text-sm">from $2,499</span>
-            </div>
-            <p class="text-white/50 text-sm leading-relaxed">Whitewashed villas, volcanic sunsets, and crystal-clear Aegean waters await you.</p>
-            <a href="#contact" class="mt-4 inline-block text-cyan text-sm font-semibold hover:underline">Book This Trip →</a>
+        <div class="dest-card fade-up delay-100 border border-white/10 rounded-2xl overflow-hidden">
+          <img src="https://placehold.co/600x400/001560/00D4FF?text=Santorini" alt="Santorini" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+          <div class="card-overlay"></div>
+          <span class="price-badge">from $2,499</span>
+          <div class="card-content">
+            <h3 class="text-xl font-bold">Santorini</h3>
+            <p class="text-white/70 text-sm leading-relaxed mt-1">Whitewashed villas, volcanic sunsets, and crystal-clear Aegean waters await you.</p>
+            <a href="#contact" class="btn-learn-more">Learn More</a>
           </div>
         </div>
 
         <!-- Card 2 -->
-        <div class="dest-card fade-up delay-200 bg-white/5 border border-white/10 rounded-2xl overflow-hidden">
-          <img src="https://placehold.co/600x400/001560/00D4FF?text=Kyoto" alt="Kyoto" class="w-full h-52 object-cover" loading="lazy" />
-          <div class="p-6">
-            <div class="flex items-center justify-between mb-2">
-              <h3 class="text-xl font-bold">Kyoto</h3>
-              <span class="text-cyan font-bold text-sm">from $3,199</span>
-            </div>
-            <p class="text-white/50 text-sm leading-relaxed">Ancient temples, cherry blossoms, and the timeless elegance of traditional Japan.</p>
-            <a href="#contact" class="mt-4 inline-block text-cyan text-sm font-semibold hover:underline">Book This Trip →</a>
+        <div class="dest-card fade-up delay-200 border border-white/10 rounded-2xl overflow-hidden">
+          <img src="https://placehold.co/600x400/001560/00D4FF?text=Kyoto" alt="Kyoto" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+          <div class="card-overlay"></div>
+          <span class="price-badge">from $3,199</span>
+          <div class="card-content">
+            <h3 class="text-xl font-bold">Kyoto</h3>
+            <p class="text-white/70 text-sm leading-relaxed mt-1">Ancient temples, cherry blossoms, and the timeless elegance of traditional Japan.</p>
+            <a href="#contact" class="btn-learn-more">Learn More</a>
           </div>
         </div>
 
         <!-- Card 3 -->
-        <div class="dest-card fade-up delay-300 bg-white/5 border border-white/10 rounded-2xl overflow-hidden">
-          <img src="https://placehold.co/600x400/001560/00D4FF?text=Patagonia" alt="Patagonia" class="w-full h-52 object-cover" loading="lazy" />
-          <div class="p-6">
-            <div class="flex items-center justify-between mb-2">
-              <h3 class="text-xl font-bold">Patagonia</h3>
-              <span class="text-cyan font-bold text-sm">from $4,099</span>
-            </div>
-            <p class="text-white/50 text-sm leading-relaxed">Dramatic glaciers, towering peaks, and untamed wilderness at the edge of the world.</p>
-            <a href="#contact" class="mt-4 inline-block text-cyan text-sm font-semibold hover:underline">Book This Trip →</a>
+        <div class="dest-card fade-up delay-300 border border-white/10 rounded-2xl overflow-hidden">
+          <img src="https://placehold.co/600x400/001560/00D4FF?text=Patagonia" alt="Patagonia" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+          <div class="card-overlay"></div>
+          <span class="price-badge">from $4,099</span>
+          <div class="card-content">
+            <h3 class="text-xl font-bold">Patagonia</h3>
+            <p class="text-white/70 text-sm leading-relaxed mt-1">Dramatic glaciers, towering peaks, and untamed wilderness at the edge of the world.</p>
+            <a href="#contact" class="btn-learn-more">Learn More</a>
           </div>
         </div>
 
