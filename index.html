@@ -168,6 +168,22 @@
     .delay-100 { transition-delay: 0.1s; }
     .delay-200 { transition-delay: 0.2s; }
     .delay-300 { transition-delay: 0.3s; }
+
+    /* Language switcher */
+    .lang-btn {
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: rgba(255,255,255,0.6);
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 4px;
+      padding: 3px 7px;
+      cursor: pointer;
+      transition: all 0.2s;
+      letter-spacing: 0.05em;
+    }
+    .lang-btn:hover { color: #fff; border-color: rgba(255,255,255,0.5); }
+    .lang-btn.lang-active { color: #000D33; background: #00D4FF; border-color: #00D4FF; }
   </style>
 </head>
 <body class="text-white">
@@ -180,10 +196,15 @@
 
       <!-- Desktop Nav -->
       <nav class="hidden md:flex items-center gap-8">
-        <a href="#tours" class="nav-link text-sm font-medium text-white/80 hover:text-white">Tours</a>
-        <a href="#about" class="nav-link text-sm font-medium text-white/80 hover:text-white">About</a>
-        <a href="#contact" class="nav-link text-sm font-medium text-white/80 hover:text-white">Contact</a>
-        <a href="#contact" class="btn-cyan px-5 py-2 rounded-full text-sm">Book Now</a>
+        <a href="#tours" class="nav-link text-sm font-medium text-white/80 hover:text-white" data-i18n="navTours">Tours</a>
+        <a href="#about" class="nav-link text-sm font-medium text-white/80 hover:text-white" data-i18n="navAbout">About</a>
+        <a href="#contact" class="nav-link text-sm font-medium text-white/80 hover:text-white" data-i18n="navContact">Contact</a>
+        <div class="lang-switcher hidden md:flex items-center gap-1 mr-3">
+          <button class="lang-btn" data-lang="en">EN</button>
+          <button class="lang-btn" data-lang="ru">RU</button>
+          <button class="lang-btn" data-lang="uz">UZ</button>
+        </div>
+        <a href="#contact" class="btn-cyan px-5 py-2 rounded-full text-sm" data-i18n="navCTA">Book Now</a>
       </nav>
 
       <!-- Hamburger -->
@@ -197,10 +218,15 @@
     <!-- Mobile Menu -->
     <div id="mobile-menu" class="md:hidden">
       <nav class="flex flex-col gap-4 pt-4 pb-2 px-2">
-        <a href="#tours" class="text-sm font-medium text-white/80 hover:text-cyan" onclick="closeMenu()">Tours</a>
-        <a href="#about" class="text-sm font-medium text-white/80 hover:text-cyan" onclick="closeMenu()">About</a>
-        <a href="#contact" class="text-sm font-medium text-white/80 hover:text-cyan" onclick="closeMenu()">Contact</a>
-        <a href="#contact" class="btn-cyan px-5 py-2 rounded-full text-sm text-center" onclick="closeMenu()">Book Now</a>
+        <a href="#tours" class="text-sm font-medium text-white/80 hover:text-cyan" onclick="closeMenu()" data-i18n="navTours">Tours</a>
+        <a href="#about" class="text-sm font-medium text-white/80 hover:text-cyan" onclick="closeMenu()" data-i18n="navAbout">About</a>
+        <a href="#contact" class="text-sm font-medium text-white/80 hover:text-cyan" onclick="closeMenu()" data-i18n="navContact">Contact</a>
+        <a href="#contact" class="btn-cyan px-5 py-2 rounded-full text-sm text-center" onclick="closeMenu()" data-i18n="navCTA">Book Now</a>
+        <div class="flex items-center gap-2 pt-1">
+          <button class="lang-btn" data-lang="en">EN</button>
+          <button class="lang-btn" data-lang="ru">RU</button>
+          <button class="lang-btn" data-lang="uz">UZ</button>
+        </div>
       </nav>
     </div>
   </header>
@@ -214,22 +240,22 @@
     <div class="absolute bottom-1/4 right-1/4 w-80 h-80 rounded-full bg-cyan/5 blur-3xl pointer-events-none"></div>
 
     <div class="relative z-10 px-6 max-w-4xl mx-auto">
-      <p class="text-cyan text-sm font-semibold tracking-[0.3em] uppercase mb-4">Your Journey Starts Here</p>
+      <p class="text-cyan text-sm font-semibold tracking-[0.3em] uppercase mb-4" data-i18n="heroSub">Your Journey Starts Here</p>
       <h1 class="text-[2rem] md:text-7xl font-extrabold leading-tight mb-6">
-        Explore the World,<br /><span class="text-cyan">Your Way</span>
+        <span data-i18n="heroH1">Explore the World,</span><br /><span class="text-cyan" data-i18n="heroH2">Your Way</span>
       </h1>
-      <p class="text-white/60 text-lg md:text-xl font-light max-w-xl mx-auto mb-10">
+      <p class="text-white/60 text-lg md:text-xl font-light max-w-xl mx-auto mb-10" data-i18n="heroDesc">
         Bespoke travel experiences crafted for the curious soul. Luxury, adventure, and discovery — all in one.
       </p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="#tours" class="btn-cyan px-8 py-4 rounded-full text-base">Discover Tours</a>
-        <a href="#contact" class="px-8 py-4 rounded-full text-base border border-white/30 hover:border-cyan text-white/80 hover:text-white transition-colors duration-200">Talk to an Expert</a>
+        <a href="#tours" class="btn-cyan px-8 py-4 rounded-full text-base" data-i18n="heroCTA1">Discover Tours</a>
+        <a href="#contact" class="px-8 py-4 rounded-full text-base border border-white/30 hover:border-cyan text-white/80 hover:text-white transition-colors duration-200" data-i18n="heroCTA2">Talk to an Expert</a>
       </div>
     </div>
 
     <!-- Scroll indicator -->
     <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/30">
-      <span class="text-xs tracking-widest uppercase">Scroll</span>
+      <span class="text-xs tracking-widest uppercase" data-i18n="scroll">Scroll</span>
       <div class="w-px h-10 bg-gradient-to-b from-white/30 to-transparent"></div>
     </div>
   </section>
@@ -238,9 +264,9 @@
   <section id="tours" class="py-24 px-6">
     <div class="max-w-6xl mx-auto">
       <div class="text-center mb-16 fade-up">
-        <p class="text-cyan text-sm font-semibold tracking-[0.3em] uppercase mb-3">Handpicked For You</p>
-        <h2 class="text-[2rem] md:text-5xl font-extrabold">Popular Destinations</h2>
-        <p class="text-white/50 mt-4 max-w-xl mx-auto">From sun-soaked coastlines to ancient mountain trails — find your next adventure.</p>
+        <p class="text-cyan text-sm font-semibold tracking-[0.3em] uppercase mb-3" data-i18n="destSub">Handpicked For You</p>
+        <h2 class="text-[2rem] md:text-5xl font-extrabold" data-i18n="destHeading">Popular Destinations</h2>
+        <p class="text-white/50 mt-4 max-w-xl mx-auto" data-i18n="destDesc">From sun-soaked coastlines to ancient mountain trails — find your next adventure.</p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -252,8 +278,8 @@
           <span class="price-badge">from $2,499</span>
           <div class="card-content">
             <h3 class="text-xl font-bold">Santorini</h3>
-            <p class="text-white/70 text-sm leading-relaxed mt-1">Whitewashed villas, volcanic sunsets, and crystal-clear Aegean waters await you.</p>
-            <a href="#contact" class="btn-learn-more">Learn More</a>
+            <p class="text-white/70 text-sm leading-relaxed mt-1" data-i18n="santoriniDesc">Whitewashed villas, volcanic sunsets, and crystal-clear Aegean waters await you.</p>
+            <a href="#contact" class="btn-learn-more" data-i18n="learnMore1">Learn More</a>
           </div>
         </div>
 
@@ -264,8 +290,8 @@
           <span class="price-badge">from $3,199</span>
           <div class="card-content">
             <h3 class="text-xl font-bold">Kyoto</h3>
-            <p class="text-white/70 text-sm leading-relaxed mt-1">Ancient temples, cherry blossoms, and the timeless elegance of traditional Japan.</p>
-            <a href="#contact" class="btn-learn-more">Learn More</a>
+            <p class="text-white/70 text-sm leading-relaxed mt-1" data-i18n="kyotoDesc">Ancient temples, cherry blossoms, and the timeless elegance of traditional Japan.</p>
+            <a href="#contact" class="btn-learn-more" data-i18n="learnMore2">Learn More</a>
           </div>
         </div>
 
@@ -276,8 +302,8 @@
           <span class="price-badge">from $4,099</span>
           <div class="card-content">
             <h3 class="text-xl font-bold">Patagonia</h3>
-            <p class="text-white/70 text-sm leading-relaxed mt-1">Dramatic glaciers, towering peaks, and untamed wilderness at the edge of the world.</p>
-            <a href="#contact" class="btn-learn-more">Learn More</a>
+            <p class="text-white/70 text-sm leading-relaxed mt-1" data-i18n="patagoniaDesc">Dramatic glaciers, towering peaks, and untamed wilderness at the edge of the world.</p>
+            <a href="#contact" class="btn-learn-more" data-i18n="learnMore3">Learn More</a>
           </div>
         </div>
 
@@ -289,9 +315,9 @@
   <section id="about" class="py-24 px-6 bg-white/[0.02]">
     <div class="max-w-6xl mx-auto">
       <div class="text-center mb-16 fade-up">
-        <p class="text-cyan text-sm font-semibold tracking-[0.3em] uppercase mb-3">Why Choose Us</p>
-        <h2 class="text-[2rem] md:text-5xl font-extrabold">Travel With Confidence</h2>
-        <p class="text-white/50 mt-4 max-w-xl mx-auto">We handle every detail so you can focus on making memories.</p>
+        <p class="text-cyan text-sm font-semibold tracking-[0.3em] uppercase mb-3" data-i18n="benefitsSub">Why Choose Us</p>
+        <h2 class="text-[2rem] md:text-5xl font-extrabold" data-i18n="benefitsHeading">Travel With Confidence</h2>
+        <p class="text-white/50 mt-4 max-w-xl mx-auto" data-i18n="benefitsDesc">We handle every detail so you can focus on making memories.</p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
@@ -301,8 +327,8 @@
           <div class="benefit-icon flex justify-center mb-5">
             <i data-lucide="shield-check" class="w-12 h-12"></i>
           </div>
-          <h3 class="text-xl font-bold mb-3">Your Safety First</h3>
-          <p class="text-white/50 text-sm leading-relaxed">Every itinerary is risk-assessed and backed by 24/7 on-trip support from our expert team.</p>
+          <h3 class="text-xl font-bold mb-3" data-i18n="benefit1Title">Your Safety First</h3>
+          <p class="text-white/50 text-sm leading-relaxed" data-i18n="benefit1Desc">Every itinerary is risk-assessed and backed by 24/7 on-trip support from our expert team.</p>
         </div>
 
         <!-- Benefit 2: Expertise -->
@@ -310,8 +336,8 @@
           <div class="benefit-icon flex justify-center mb-5">
             <i data-lucide="star" class="w-12 h-12"></i>
           </div>
-          <h3 class="text-xl font-bold mb-3">Expert Curators</h3>
-          <p class="text-white/50 text-sm leading-relaxed">Our travel specialists have explored 90+ countries and craft each journey with insider knowledge.</p>
+          <h3 class="text-xl font-bold mb-3" data-i18n="benefit2Title">Expert Curators</h3>
+          <p class="text-white/50 text-sm leading-relaxed" data-i18n="benefit2Desc">Our travel specialists have explored 90+ countries and craft each journey with insider knowledge.</p>
         </div>
 
         <!-- Benefit 3: Value -->
@@ -319,8 +345,8 @@
           <div class="benefit-icon flex justify-center mb-5">
             <i data-lucide="tag" class="w-12 h-12"></i>
           </div>
-          <h3 class="text-xl font-bold mb-3">Unbeatable Value</h3>
-          <p class="text-white/50 text-sm leading-relaxed">Luxury experiences at transparent prices — no hidden fees, no surprises, just exceptional value.</p>
+          <h3 class="text-xl font-bold mb-3" data-i18n="benefit3Title">Unbeatable Value</h3>
+          <p class="text-white/50 text-sm leading-relaxed" data-i18n="benefit3Desc">Luxury experiences at transparent prices — no hidden fees, no surprises, just exceptional value.</p>
         </div>
 
       </div>
@@ -331,30 +357,32 @@
   <section id="contact" class="py-24 px-6">
     <div class="max-w-xl mx-auto">
       <div class="fade-up text-center mb-12">
-        <p class="text-cyan text-sm font-semibold tracking-[0.3em] uppercase mb-3">Get In Touch</p>
-        <h2 class="text-[2rem] md:text-5xl font-extrabold">Plan Your Trip</h2>
-        <p class="text-white/50 mt-4">Leave your details and one of our travel experts will reach out within 24 hours.</p>
+        <p class="text-cyan text-sm font-semibold tracking-[0.3em] uppercase mb-3" data-i18n="formSub">Get In Touch</p>
+        <h2 class="text-[2rem] md:text-5xl font-extrabold" data-i18n="formHeading">Plan Your Trip</h2>
+        <p class="text-white/50 mt-4" data-i18n="formDesc">Leave your details and one of our travel experts will reach out within 24 hours.</p>
       </div>
 
       <div class="fade-up delay-100 bg-white/5 border border-white/10 rounded-2xl p-8">
         <form id="lead-form" novalidate>
           <div class="mb-5">
-            <label for="name" class="block text-sm font-semibold mb-2 text-white/70">Full Name</label>
+            <label for="name" class="block text-sm font-semibold mb-2 text-white/70" data-i18n="labelName">Full Name</label>
             <input
               type="text" id="name" name="name" placeholder="Jane Smith"
               class="form-input w-full bg-white/5 border border-white/20 rounded-xl px-4 py-3 text-white placeholder-white/30 text-sm"
+              data-i18n-placeholder="placeholderName"
               required
             />
           </div>
           <div class="mb-8">
-            <label for="phone" class="block text-sm font-semibold mb-2 text-white/70">Phone Number</label>
+            <label for="phone" class="block text-sm font-semibold mb-2 text-white/70" data-i18n="labelPhone">Phone Number</label>
             <input
               type="tel" id="phone" name="phone" placeholder="+1 (555) 000-0000"
               class="form-input w-full bg-white/5 border border-white/20 rounded-xl px-4 py-3 text-white placeholder-white/30 text-sm"
+              data-i18n-placeholder="placeholderPhone"
               required
             />
           </div>
-          <button type="submit" class="btn-cyan w-full py-4 rounded-xl text-base">Send My Details</button>
+          <button type="submit" class="btn-cyan w-full py-4 rounded-xl text-base" data-i18n="submitBtn">Send My Details</button>
         </form>
 
         <!-- Success message (hidden by default) -->
@@ -362,8 +390,8 @@
           <div class="text-cyan flex justify-center mb-4">
             <i data-lucide="check-circle" class="w-14 h-14"></i>
           </div>
-          <h3 class="text-xl font-bold mb-2">You're All Set!</h3>
-          <p class="text-white/50 text-sm">We've received your details and will contact you within 24 hours.</p>
+          <h3 class="text-xl font-bold mb-2" data-i18n="successTitle">You're All Set!</h3>
+          <p class="text-white/50 text-sm" data-i18n="successMsg">We've received your details and will contact you within 24 hours.</p>
         </div>
       </div>
     </div>
@@ -377,14 +405,14 @@
         <!-- Brand -->
         <div>
           <span class="text-2xl font-extrabold tracking-widest text-white">TRIPSTER</span>
-          <p class="text-white/40 text-sm mt-3 leading-relaxed max-w-xs">
+          <p class="text-white/40 text-sm mt-3 leading-relaxed max-w-xs" data-i18n="footerDesc">
             Crafting unforgettable journeys for the modern traveller since 2018.
           </p>
         </div>
 
         <!-- Contact Info -->
         <div>
-          <h4 class="text-sm font-bold uppercase tracking-widest text-white/60 mb-4">Contact</h4>
+          <h4 class="text-sm font-bold uppercase tracking-widest text-white/60 mb-4" data-i18n="footerContact">Contact</h4>
           <ul class="space-y-2 text-sm text-white/50">
             <li class="flex items-center gap-2">
               <i data-lucide="mail" class="w-4 h-4 text-cyan shrink-0"></i>
@@ -403,7 +431,7 @@
 
         <!-- Social -->
         <div>
-          <h4 class="text-sm font-bold uppercase tracking-widest text-white/60 mb-4">Follow Us</h4>
+          <h4 class="text-sm font-bold uppercase tracking-widest text-white/60 mb-4" data-i18n="footerFollow">Follow Us</h4>
           <div class="flex gap-4">
             <a href="#" aria-label="Twitter/X" class="text-white/40 hover:text-cyan transition-colors duration-200">
               <i data-lucide="twitter" class="w-5 h-5"></i>
@@ -420,8 +448,8 @@
       </div>
 
       <div class="border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-white/30">
-        <span>&copy; 2026 Tripster. All rights reserved.</span>
-        <span>Built for explorers, by explorers.</span>
+        <span data-i18n="copyright">&copy; 2026 Tripster. All rights reserved.</span>
+        <span data-i18n="tagline">Built for explorers, by explorers.</span>
       </div>
     </div>
   </footer>
@@ -429,6 +457,8 @@
   <!-- ===================== SCRIPTS ===================== -->
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script src="js/translations.js"></script>
+  <script src="js/i18n.js"></script>
 
   <script>
     // Initialise Lucide icons
