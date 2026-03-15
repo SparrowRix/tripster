@@ -40,11 +40,14 @@ const translations = {
     submitBtn: "Send My Details",
     successTitle: "You're All Set!",
     successMsg: "We've received your details and will contact you within 24 hours.",
+    mapSub: "Our Location",
+    mapHeading: "How to Find Us",
     footerDesc: "Crafting unforgettable journeys for the modern traveller since 2026.",
     footerContact: "Contact",
     footerFollow: "Follow Us",
     copyright: "© 2026 Tripster. All rights reserved.",
-    tagline: "Built for explorers, by explorers."
+    tagline: "Built for explorers, by explorers.",
+    officeAddress: "3 Chingiz Aytmatov Str., Tashkent"
   },
   ru: {
     navTours: "Туры",
@@ -87,11 +90,14 @@ const translations = {
     submitBtn: "Отправить данные",
     successTitle: "Всё готово!",
     successMsg: "Мы получили ваши данные и свяжемся с вами в течение 24 часов.",
+    mapSub: "Наше расположение",
+    mapHeading: "Как нас найти",
     footerDesc: "Создаём незабываемые путешествия для современного путешественника с 2026 года.",
     footerContact: "Контакты",
     footerFollow: "Мы в соцсетях",
     copyright: "© 2026 Tripster. Все права защищены.",
-    tagline: "Создано исследователями для исследователей."
+    tagline: "Создано исследователями для исследователей.",
+    officeAddress: "Ташкент, ул. Чингиза Айтматова, 3"
   },
   uz: {
     navTours: "Sayohatlar",
@@ -134,10 +140,13 @@ const translations = {
     submitBtn: "Ma'lumotlarni yuborish",
     successTitle: "Hammasi tayyor!",
     successMsg: "Ma'lumotlaringizni qabul qildik va 24 soat ichida siz bilan bog'lanamiz.",
+    mapSub: "Bizning joylashuvimiz",
+    mapHeading: "Bizni qanday topish mumkin",
     footerDesc: "2026 yildan beri zamonaviy sayohatchilarga unutilmas sayohatlar yaratib kelmoqdamiz.",
     footerContact: "Aloqa",
     footerFollow: "Bizni kuzating",
     copyright: "© 2026 Tripster. Barcha huquqlar himoyalangan.",
-    tagline: "Tadqiqotchilar tomonidan tadqiqotchilar uchun yaratilgan."
+    tagline: "Tadqiqotchilar tomonidan tadqiqotchilar uchun yaratilgan.",
+    officeAddress: "Toshkent, Chingiz Aytmatov ko'chasi, 3"
   }
 };
