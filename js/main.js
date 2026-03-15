@@ -1,11 +1,38 @@
 // Initialise Lucide icons
 lucide.createIcons();
 
-// ── Header scroll behaviour ──────────────────────────
+// ── Header scroll behaviour + adaptive logo swap ─────
 const header = document.getElementById('header');
-window.addEventListener('scroll', () => {
-  header.classList.toggle('scrolled', window.scrollY > 40);
-}, { passive: true });
+const logo = document.getElementById('main-logo');
+const logoAnchor = logo.closest('a');
+
+function updateHeader() {
+  const isMobile = window.innerWidth < 768;
+  const scrolled = window.scrollY > 50;
+
+  if (isMobile) {
+    logo.src = 'assets/logo-2.png';
+    logoAnchor.classList.remove('logo-large');
+    logo.style.height = '';
+    header.classList.toggle('scrolled', scrolled);
+  } else {
+    if (scrolled) {
+      logo.src = 'assets/logo-2.png';
+      logoAnchor.classList.remove('logo-large');
+      logo.style.height = '';
+      header.classList.add('scrolled');
+    } else {
+      logo.src = 'assets/logo-1.jpg';
+      logoAnchor.classList.add('logo-large');
+      logo.style.height = '200px';
+      header.classList.remove('scrolled');
+    }
+  }
+}
+
+window.addEventListener('scroll', updateHeader, { passive: true });
+window.addEventListener('resize', updateHeader, { passive: true });
+document.addEventListener('DOMContentLoaded', updateHeader);
 
 // ── Mobile hamburger ─────────────────────────────────
 const hamburger = document.getElementById('hamburger');
