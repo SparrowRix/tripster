@@ -20,11 +20,16 @@ function updateHeader() {
       logo.src = 'assets/logo-2.png';
       logoAnchor.classList.remove('logo-large');
       logo.style.height = '';
+      // logo.style.marginTop = '-1rem';
+      // logo.style.paddingTop = '1rem';
+      logo.style.background = '';
       header.classList.add('scrolled');
     } else {
-      logo.src = 'assets/logo-1.jpg';
+      logo.src = 'assets/logo-1.png';
       logoAnchor.classList.add('logo-large');
       logo.style.height = '200px';
+      logo.style.marginTop = '-1rem';
+      logo.style.background = '#000D33';
       header.classList.remove('scrolled');
     }
   }
