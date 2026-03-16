@@ -14,14 +14,13 @@ function updateHeader() {
     logo.src = 'assets/logo-2.png';
     logoAnchor.classList.remove('logo-large');
     logo.style.height = '';
+    logo.style.background = '';
     header.classList.toggle('scrolled', scrolled);
   } else {
     if (scrolled) {
       logo.src = 'assets/logo-2.png';
       logoAnchor.classList.remove('logo-large');
       logo.style.height = '';
-      // logo.style.marginTop = '-1rem';
-      // logo.style.paddingTop = '1rem';
       logo.style.background = '';
       header.classList.add('scrolled');
     } else {
